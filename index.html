@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -19,10 +18,6 @@
   
     body {
       background: #f4f6f9;
-      /* bright neutral base */
-      background-image:
-        linear-gradient(rgba(255, 127, 46, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 127, 46, 0.04) 1px, transparent 1px);
       background-size: 48px 48px;
       font-family: 'Space Grotesk', sans-serif;
       color: #1e1f22;
@@ -31,20 +26,6 @@
       display: flex;
       flex-direction: column;
       padding: 0 24px;
-    }
-  
-    /* subtle orange ambient glow */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 20% 30%, rgba(255, 127, 46, 0.06) 0%, transparent 45%),
-        radial-gradient(circle at 80% 70%, rgba(255, 80, 0, 0.04) 0%, transparent 45%);
-      pointer-events: none;
-      z-index: 0;
     }
   
     /* main wrapper */
@@ -233,6 +214,12 @@
     }
     .product-price .price {
       font-size: 1.75rem;
+    }
+    .product-price .original-price {
+      font-size: 1rem;
+      color: #8a6e58;
+      text-decoration: line-through;
+      margin-left: 24px;
     }
   
     /* cart button — bright orange */
@@ -460,6 +447,7 @@
     <!-- Notice: placeholder data -->
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
       <div class="edit-note">
+        Anti Barking Device for Dogs
       </div>
       <span style="color: #8a6e58;"><i class="fa-regular fa-cart-shopping"></i> Click cart to purchase</span>
     </div>
@@ -521,28 +509,28 @@
       const products = [
         {
           model: 'Q13',
-          price: '69.99',
+          price: 69.99,
           name: 'Anti Barking Device for Dogs, Automatic Dog Barking Deterrent Devices with AI Detection, Adjustable Ultrasonic Dog Bark Control with 2 Enhanced Emitters, IPX6 Rechargeable Indoor Outdoor',
           image: './img/Q13.jpg',
           cartLink: '#'
         },
         {
           model: 'Q02',
-          price: '59.99',
+          price: 59.99,
           name: 'Anti Barking Device for Dogs, Ultrasonic Dog Barking Deterrent Devices with 3 Modes, Dog Bark Control 50ft Range with 30 Days Battery Lift, Portable Stop Barking Device with Flashlight',
           image: './img/Q02.jpg',
           cartLink: '#'
         },
         {
           model: 'Q09',
-          price: '49.99',
+          price: 49.99,
           name: 'Anti Barking Device for Dogs, Ultrasonic Dog Barking Device, Portable Dog Barking Deterrent Devices Safe & Humane 50FT Bark Control Barks Indoor Outdoors Behavior Correct',
           image: './img/Q09.jpg',
           cartLink: '#'
         },
         {
           model: 'Q11',
-          price: '49.99',
+          price: 49.99,
           name: 'Anti Barking Collars,Dog Training Collar with Behaviour Aids,Ultrasonic&Beep&Vibration,Non-Shock Anti Barking Device for Medium Large Dog,IPX7 Waterproof,Rechargeable Stop Barking Dog Deterrent Device',
           image: './img/Q11.jpg',
           cartLink: '#'
@@ -563,7 +551,10 @@
               <div class="card-info">
                 <span class="product-model"><i class="fa-regular fa-registered" style="margin-right: 6px;"></i>${item.model}</span>
                 <div class="product-name">${item.name}</div>
-                <div class="product-price"> <span class="currency">$</span><span class="price">${item.price}</span></div>
+                <div class="product-price">
+                  <span class="currency">AU$</span><span class="price">${item.price}</span>
+                  <span class="original-price">AU$${(item.price + 10.99).toFixed(2)}</span>
+                </div>
                 <a href="${item.cartLink}" class="cart-link" target="_blank" rel="noopener">
                   <i class="fa-solid fa-cart-plus"></i> Add to Cart
                   <i class="fa-solid fa-arrow-right" style="font-size: 0.9rem;"></i>
